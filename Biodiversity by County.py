@@ -44,7 +44,10 @@ county_biodiversity = county_biodiversity.unstack(['Subgroup'])
 
 county_biodiversity = county_biodiversity.fillna(0)
 
-# write data to csv
+# total biodiversity score
+county_biodiversity['Total Spp'] = county_biodiversity.sum(axis=1)
+
+#%% write data to csv
 county_biodiversity.to_csv('county_biodiversity.csv', index=True)
 
 #%% master biodiversity by county df 

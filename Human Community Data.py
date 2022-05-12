@@ -7,6 +7,8 @@ Created on Sat Apr 30 16:32:30 2022
 
 #%% imports
 import pandas as pd
+import geopandas as gpd
+
 
 #%% get data
 # create DataFrame for disadvantaged community metrics
@@ -17,6 +19,8 @@ print("Columns of DF:", list(communities.columns),'\n')
 
 # pull out DAC communities
 disadvantaged = communities.query("DAC_Designation == 'Designated as a Draft DAC'")
+
+print("Indicators for Disadvantaged Communities:", list(disadvantaged.columns),'\n')
 
 #%% separate out land use data
 
@@ -38,8 +42,29 @@ risk = communities[keepvars].copy()
 
 #%% write data to csv
 
-land_use.to_csv('land_use_from_DAC',index=True)
+land_use.to_csv('land_use_from_DAC.csv',index=True)
 
 risk.to_csv('risk_from_DAC.csv',index=True)
 
 disadvantaged.to_csv('draft_DAC_designation.csv',index=True)
+
+# %% write data to gpkg
+
+# read shapefile
+geodata = gpd.read_file('cb_2019_us_county_500k_36.zip')
+
+# join trim and geodata
+DACgeodata = geodata.merge(disadvantaged,on='GEOID',how='left',validate='1:1',indicator=True)
+
+# print value counts for merge
+print( DACgeodata['_merge'].value_counts() )
+
+# drop merge column
+DACgeodata.drop(columns='_merge',inplace=True)
+
+# write data to geopackage file
+DACgeodata.to_file("disavantaged_communities.gpkg", layer="AFFGEOID", index=False)
+
+# write to json file
+DACgeodata.to_file("disadvantaged_communities.json", driver="GeoJSON")
+

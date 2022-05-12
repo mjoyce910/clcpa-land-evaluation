@@ -40,6 +40,9 @@ land_use = land_use1.div(land_use1['Total Parcel Count'],axis='rows')
  
 land_use = land_use.drop(columns = ['Total Parcel Count'])
 
+New_York_City = ['New York', 'Kings', 'Bronx', 'Richmond', 'Queens']
+
+land_use = pd.concat([land_use.loc['New York']]*4, ignore_index=True)
 #%% write data to csv
 
 land_use.to_csv('county_land_use.csv', index=True)
