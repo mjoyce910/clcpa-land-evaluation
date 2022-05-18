@@ -60,7 +60,7 @@ Output files:
 The tableau dashboard allows you to compare counties across multiple metrics (biodiversity, land use) against locations of NY State's draft designations for disadvantaged communities (and each community's risk factors). The visual depiction of counties in New York State shows areas with high biodiversity and some corresponding areas with a high percentage of parcels in conservation, but also shows counties with lower biodiversity (especially for certain species) and a higher percentage of vacant lots. Looking at draft designated disavantaged communities and how they align with county data for biodiversity or land use also shows some communities that are rural or suburban in higher biodiversity areas.
 
 See more and explore through the interactive dashboard:  
-https://prod-useast-a.online.tableau.com/t/evaluationofnycountiesforconservationpotential/views/NewYorkEvaluations/Dashboard1/3ac01929-d223-46a6-8cf6-59002814f3e2/a02cfacd-def1-4467-88a9-2304770ff14b?:display_count=n&:showVizHome=n&:origin=viz_share_link 
+https://public.tableau.com/views/NewYorkCountyEvaluations/EvaluationofNYCountiesforConservationPotential?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link 
 
 ## Next Steps
 Moving forward, this project would take a look at vacant lot data from counties with high numbers of vacant lots in order to identify land that would be suitable (based on habitat connectivity, flood mitigation, high prevalence of heat islands, etc.) for potential conservation projects, especially in the context of carbon sequestration. This analysis would be useful as the state implements the CLCPA and identifies opportunities to lower risk for disadvantaged communities as well as meet its targets for carbon neutrality.
